@@ -1,3 +1,7 @@
+## NEXT
+
+* Adds onReceivedHttpError WebView callback to support the onPageError callback.
+
 ## 3.3.1
 
 * Updates links for the merge of flutter/plugins into flutter/packages.
