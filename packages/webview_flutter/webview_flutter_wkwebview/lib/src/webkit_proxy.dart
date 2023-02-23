@@ -70,7 +70,7 @@ class WebKitProxy {
       WKNavigationAction navigationAction,
     )?
         decidePolicyForNavigationAction,
-     Future<WKNavigationResponsePolicy> Function(
+    Future<WKNavigationResponsePolicy> Function(
       WKWebView webView,
       WKNavigationResponse navigationResponse,
     )?
