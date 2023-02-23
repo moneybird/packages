@@ -1,3 +1,7 @@
+## NEXT
+
+* Adds decidePolicyForNavigationResponse WKWebView delegate to support the onPageError callback.
+
 ## 3.1.1
 
 * Updates links for the merge of flutter/plugins into flutter/packages.

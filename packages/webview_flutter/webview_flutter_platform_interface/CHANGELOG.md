@@ -1,3 +1,7 @@
+## NEXT
+
+* Adds platform interface for onPageError callback
+
 ## 2.0.2
 
 * Updates links for the merge of flutter/plugins into flutter/packages.

@@ -1,3 +1,7 @@
+# NEXT
+
+* Adds onPageError callback to NavigationDelegate to catch HTTP error status codes.
+
 ## 4.0.5
 
 * Updates links for the merge of flutter/plugins into flutter/packages.
