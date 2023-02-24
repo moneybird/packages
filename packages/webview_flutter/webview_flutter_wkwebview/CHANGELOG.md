@@ -1,4 +1,4 @@
-## NEXT
+## 3.1.2
 
 * Adds decidePolicyForNavigationResponse WKWebView delegate to support the onPageError callback.
 

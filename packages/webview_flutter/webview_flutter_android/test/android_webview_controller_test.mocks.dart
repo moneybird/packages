@@ -359,6 +359,12 @@ class MockAndroidNavigationDelegate extends _i1.Mock
 class MockAndroidWebViewController extends _i1.Mock
     implements _i8.AndroidWebViewController {
   @override
+  int get webViewIdentifier => (super.noSuchMethod(
+        Invocation.getter(#webViewIdentifier),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
+  @override
   _i3.PlatformWebViewControllerCreationParams get params => (super.noSuchMethod(
         Invocation.getter(#params),
         returnValue: _FakePlatformWebViewControllerCreationParams_4(
@@ -660,11 +666,11 @@ class MockAndroidWebViewController extends _i1.Mock
   @override
   _i9.Future<void> setOnShowFileSelector(
           _i9.Future<List<String>> Function(_i8.FileSelectorParams)?
-              onShowFileSelectorCallback) =>
+              onShowFileSelector) =>
       (super.noSuchMethod(
         Invocation.method(
           #setOnShowFileSelector,
-          [onShowFileSelectorCallback],
+          [onShowFileSelector],
         ),
         returnValue: _i9.Future<void>.value(),
         returnValueForMissingStub: _i9.Future<void>.value(),
@@ -753,6 +759,11 @@ class MockAndroidWebViewProxy extends _i1.Mock
   _i2.WebViewClient Function({
     void Function(
       _i2.WebView,
+      int,
+    )?
+        onPageError,
+    void Function(
+      _i2.WebView,
       String,
     )?
         onPageFinished,
@@ -787,6 +798,11 @@ class MockAndroidWebViewProxy extends _i1.Mock
   }) get createAndroidWebViewClient => (super.noSuchMethod(
         Invocation.getter(#createAndroidWebViewClient),
         returnValue: ({
+          void Function(
+            _i2.WebView,
+            int,
+          )?
+              onPageError,
           void Function(
             _i2.WebView,
             String,
@@ -828,6 +844,11 @@ class MockAndroidWebViewProxy extends _i1.Mock
         returnValueForMissingStub: ({
           void Function(
             _i2.WebView,
+            int,
+          )?
+              onPageError,
+          void Function(
+            _i2.WebView,
             String,
           )?
               onPageFinished,
@@ -865,6 +886,11 @@ class MockAndroidWebViewProxy extends _i1.Mock
           Invocation.getter(#createAndroidWebViewClient),
         ),
       ) as _i2.WebViewClient Function({
+        void Function(
+          _i2.WebView,
+          int,
+        )?
+            onPageError,
         void Function(
           _i2.WebView,
           String,
@@ -1067,11 +1093,11 @@ class MockAndroidWebViewWidgetCreationParams extends _i1.Mock
 class MockExpensiveAndroidViewController extends _i1.Mock
     implements _i7.ExpensiveAndroidViewController {
   @override
-  bool get requiresViewComposition => (super.noSuchMethod(
-        Invocation.getter(#requiresViewComposition),
-        returnValue: false,
-        returnValueForMissingStub: false,
-      ) as bool);
+  int get textureId => (super.noSuchMethod(
+        Invocation.getter(#textureId),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
   @override
   int get viewId => (super.noSuchMethod(
         Invocation.getter(#viewId),
@@ -1127,18 +1153,11 @@ class MockExpensiveAndroidViewController extends _i1.Mock
         returnValueForMissingStub: _i9.Future<void>.value(),
       ) as _i9.Future<void>);
   @override
-  _i9.Future<void> create({
-    _i4.Size? size,
-    _i4.Offset? position,
-  }) =>
-      (super.noSuchMethod(
+  _i9.Future<void> create({_i4.Size? size}) => (super.noSuchMethod(
         Invocation.method(
           #create,
           [],
-          {
-            #size: size,
-            #position: position,
-          },
+          {#size: size},
         ),
         returnValue: _i9.Future<void>.value(),
         returnValueForMissingStub: _i9.Future<void>.value(),
@@ -1419,12 +1438,6 @@ class MockPlatformViewsServiceProxy extends _i1.Mock
 class MockSurfaceAndroidViewController extends _i1.Mock
     implements _i7.SurfaceAndroidViewController {
   @override
-  bool get requiresViewComposition => (super.noSuchMethod(
-        Invocation.getter(#requiresViewComposition),
-        returnValue: false,
-        returnValueForMissingStub: false,
-      ) as bool);
-  @override
   int get viewId => (super.noSuchMethod(
         Invocation.getter(#viewId),
         returnValue: 0,
@@ -1479,18 +1492,11 @@ class MockSurfaceAndroidViewController extends _i1.Mock
         returnValueForMissingStub: _i9.Future<void>.value(),
       ) as _i9.Future<void>);
   @override
-  _i9.Future<void> create({
-    _i4.Size? size,
-    _i4.Offset? position,
-  }) =>
-      (super.noSuchMethod(
+  _i9.Future<void> create({_i4.Size? size}) => (super.noSuchMethod(
         Invocation.method(
           #create,
           [],
-          {
-            #size: size,
-            #position: position,
-          },
+          {#size: size},
         ),
         returnValue: _i9.Future<void>.value(),
         returnValueForMissingStub: _i9.Future<void>.value(),

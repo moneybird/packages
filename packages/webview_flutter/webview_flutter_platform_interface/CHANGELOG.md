@@ -1,4 +1,4 @@
-## NEXT
+## 2.0.3
 
 * Adds platform interface for onPageError callback
 

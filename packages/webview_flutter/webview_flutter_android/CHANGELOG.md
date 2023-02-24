@@ -1,4 +1,4 @@
-## NEXT
+## 3.3.2
 
 * Adds onReceivedHttpError WebView callback to support the onPageError callback.
 

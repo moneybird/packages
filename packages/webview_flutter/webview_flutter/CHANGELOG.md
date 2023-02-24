@@ -1,4 +1,4 @@
-# NEXT
+## 4.0.6
 
 * Adds onPageError callback to NavigationDelegate to catch HTTP error status codes.
 
