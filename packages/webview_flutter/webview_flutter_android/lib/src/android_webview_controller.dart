@@ -1212,6 +1212,11 @@ class AndroidNavigationDelegate extends PlatformNavigationDelegate {
           callback(url);
         }
       },
+      onPageError: (android_webview.WebView webView, int statusCode) {
+        if (weakThis.target?._onPageError != null) {
+          weakThis.target!._onPageError!(statusCode);
+        }
+      },
       onReceivedRequestError: (
         android_webview.WebView webView,
         android_webview.WebResourceRequest request,
@@ -1319,6 +1324,7 @@ class AndroidNavigationDelegate extends PlatformNavigationDelegate {
 
   PageEventCallback? _onPageFinished;
   PageEventCallback? _onPageStarted;
+  PageErrorCallback? _onPageError;
   ProgressCallback? _onProgress;
   WebResourceErrorCallback? _onWebResourceError;
   NavigationRequestCallback? _onNavigationRequest;
@@ -1390,6 +1396,13 @@ class AndroidNavigationDelegate extends PlatformNavigationDelegate {
     PageEventCallback onPageFinished,
   ) async {
     _onPageFinished = onPageFinished;
+  }
+
+  @override
+  Future<void> setOnPageError(
+    PageErrorCallback onPageError,
+  ) async {
+    _onPageError = onPageError;
   }
 
   @override

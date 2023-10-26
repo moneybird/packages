@@ -70,6 +70,30 @@ void main() {
       expect(callbackUrl, 'https://www.google.com');
     });
 
+    test('setOnPageError from decidePolicyForNavigationResponse', () {
+      final WebKitNavigationDelegate webKitDelgate = WebKitNavigationDelegate(
+        const WebKitNavigationDelegateCreationParams(
+          webKitProxy: WebKitProxy(
+            createNavigationDelegate: CapturingNavigationDelegate.new,
+            createUIDelegate: CapturingUIDelegate.new,
+          ),
+        ),
+      );
+
+      late final int callbackStatusCode;
+      webKitDelgate
+          .setOnPageError((int statusCode) => callbackStatusCode = statusCode);
+
+      CapturingNavigationDelegate
+          .lastCreatedDelegate.decidePolicyForNavigationResponse!(
+        WKWebView.detached(),
+        const WKNavigationResponse(
+            response: NSHttpUrlResponse(statusCode: 401), forMainFrame: true),
+      );
+
+      expect(callbackStatusCode, 401);
+    });
+
     test('onWebResourceError from didFailNavigation', () {
       final WebKitNavigationDelegate webKitDelegate = WebKitNavigationDelegate(
         const WebKitNavigationDelegateCreationParams(
@@ -222,6 +246,7 @@ class CapturingNavigationDelegate extends WKNavigationDelegate {
   CapturingNavigationDelegate({
     super.didFinishNavigation,
     super.didStartProvisionalNavigation,
+    super.decidePolicyForNavigationResponse,
     super.didFailNavigation,
     super.didFailProvisionalNavigation,
     super.decidePolicyForNavigationAction,

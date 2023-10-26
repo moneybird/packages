@@ -343,6 +343,17 @@ class MockAndroidNavigationDelegate extends _i1.Mock
       ) as _i9.Future<void>);
 
   @override
+  _i9.Future<void> setOnPageError(_i3.PageErrorCallback? onPageError) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #setOnPageError,
+          [onPageError],
+        ),
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
+
+  @override
   _i9.Future<void> setOnProgress(_i3.ProgressCallback? onProgress) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -977,6 +988,10 @@ class MockAndroidWebViewProxy extends _i1.Mock
     )? doUpdateVisitedHistory,
     void Function(
       _i2.WebView,
+      int,
+    )? onPageError,
+    void Function(
+      _i2.WebView,
       String,
     )? onPageFinished,
     void Function(
@@ -1010,6 +1025,10 @@ class MockAndroidWebViewProxy extends _i1.Mock
             String,
             bool,
           )? doUpdateVisitedHistory,
+          void Function(
+            _i2.WebView,
+            int,
+          )? onPageError,
           void Function(
             _i2.WebView,
             String,
@@ -1050,6 +1069,10 @@ class MockAndroidWebViewProxy extends _i1.Mock
           )? doUpdateVisitedHistory,
           void Function(
             _i2.WebView,
+            int,
+          )? onPageError,
+          void Function(
+            _i2.WebView,
             String,
           )? onPageFinished,
           void Function(
@@ -1086,6 +1109,10 @@ class MockAndroidWebViewProxy extends _i1.Mock
           String,
           bool,
         )? doUpdateVisitedHistory,
+        void Function(
+          _i2.WebView,
+          int,
+        )? onPageError,
         void Function(
           _i2.WebView,
           String,

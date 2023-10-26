@@ -1,3 +1,7 @@
+## UNRELEASED
+
+* Adds onReceivedHttpError WebView callback to support the onPageError callback.
+
 ## 3.12.0
 
 * Adds support for `PlatformWebViewController.getUserAgent`.

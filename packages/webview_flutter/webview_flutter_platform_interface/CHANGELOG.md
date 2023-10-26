@@ -1,3 +1,7 @@
+## UNRELEASED
+
+* Adds platform interface for onPageError callback
+
 ## 2.6.0
 
 * Adds support to register a callback to intercept messages that are written to

@@ -175,6 +175,18 @@ FWFNSUrlRequestData *FWFNSUrlRequestDataFromNativeNSURLRequest(NSURLRequest *req
       allHttpHeaderFields:request.allHTTPHeaderFields ? request.allHTTPHeaderFields : @{}];
 }
 
+FWFWKNavigationResponseData *FWFWKNavigationResponseDataFromNavigationResponse(
+    WKNavigationResponse *response) {
+  return [FWFWKNavigationResponseData
+      makeWithResponse:FWFNSHttpUrlResponseDataFromNSURLResponse(response.response)
+          forMainFrame:@(response.forMainFrame)];
+}
+
+FWFNSHttpUrlResponseData *FWFNSHttpUrlResponseDataFromNSURLResponse(NSURLResponse *response) {
+  NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+  return [FWFNSHttpUrlResponseData makeWithStatusCode:@(httpResponse.statusCode)];
+}
+
 FWFWKFrameInfoData *FWFWKFrameInfoDataFromNativeWKFrameInfo(WKFrameInfo *info) {
   return [FWFWKFrameInfoData makeWithIsMainFrame:@(info.isMainFrame)];
 }
@@ -205,6 +217,18 @@ FWFNSErrorData *FWFNSErrorDataFromNativeNSError(NSError *error) {
     }
   }
   return [FWFNSErrorData makeWithCode:@(error.code) domain:error.domain userInfo:userInfo];
+}
+
+WKNavigationResponsePolicy FWFWKNavigationResponsePolicyFromEnumData(
+    FWFWKNavigationResponsePolicyEnumData *data) {
+  switch (data.value) {
+    case FWFWKNavigationResponsePolicyEnumAllow:
+      return WKNavigationResponsePolicyAllow;
+    case FWFWKNavigationResponsePolicyEnumCancel:
+      return WKNavigationResponsePolicyCancel;
+  }
+
+  return -1;
 }
 
 FWFNSKeyValueChangeKeyEnumData *FWFNSKeyValueChangeKeyEnumDataFromNativeNSKeyValueChangeKey(

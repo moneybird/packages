@@ -1,3 +1,7 @@
+## UNRELEASED
+
+* Adds decidePolicyForNavigationResponse WKWebView delegate to support the onPageError callback.
+
 ## 3.9.2
 
 * Fixes error caused by calling `WKWebViewConfiguration.limitsNavigationsToAppBoundDomains` on

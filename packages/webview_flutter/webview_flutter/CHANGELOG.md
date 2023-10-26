@@ -1,3 +1,7 @@
+## UNRELEASED
+
+* Adds onPageError callback to NavigationDelegate to catch HTTP error status codes.
+
 ## 4.4.1
 
 * Exposes `JavaScriptLogLevel` from platform interface.

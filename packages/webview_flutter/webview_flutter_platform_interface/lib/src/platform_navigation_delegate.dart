@@ -17,6 +17,9 @@ typedef NavigationRequestCallback = FutureOr<NavigationDecision> Function(
 /// Signature for callbacks that report page events triggered by the native web view.
 typedef PageEventCallback = void Function(String url);
 
+/// Signature for callbacks that report errors during loading a page.
+typedef PageErrorCallback = void Function(int statusCode);
+
 /// Signature for callbacks that report loading progress of a page.
 typedef ProgressCallback = void Function(int progress);
 
@@ -102,6 +105,16 @@ abstract class PlatformNavigationDelegate extends PlatformInterface {
   ) {
     throw UnimplementedError(
         'setOnHttpError is not implemented on the current platform.');
+  }
+
+  /// Invoked when an error has occurred during loading
+  ///
+  /// See [PlatformWebViewController.setPlatformNavigationDelegate].
+  Future<void> setOnPageError(
+    PageErrorCallback onPageError,
+  ) {
+    throw UnimplementedError(
+        'setOnPageError is not implemented on the current platform.');
   }
 
   /// Invoked when a page is loading to report the progress.

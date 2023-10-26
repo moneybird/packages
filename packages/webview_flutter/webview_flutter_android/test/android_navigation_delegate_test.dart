@@ -55,6 +55,21 @@ void main() {
       expect(callbackUrl, 'https://www.google.com');
     });
 
+    test('onPageError', () {
+      final AndroidNavigationDelegate androidNavigationDelegate =
+          AndroidNavigationDelegate(_buildCreationParams());
+
+      late final int statusCode;
+      androidNavigationDelegate.setOnPageError((int code) => statusCode = code);
+
+      CapturingWebViewClient.lastCreatedDelegate.onPageError!(
+        android_webview.WebView.detached(),
+        401,
+      );
+
+      expect(statusCode, 401);
+    });
+
     test('onWebResourceError from onReceivedRequestError', () {
       final AndroidNavigationDelegate androidNavigationDelegate =
           AndroidNavigationDelegate(_buildCreationParams());
@@ -488,6 +503,7 @@ class CapturingWebViewClient extends android_webview.WebViewClient {
   CapturingWebViewClient({
     super.onPageFinished,
     super.onPageStarted,
+    super.onPageError,
     super.onReceivedError,
     super.onReceivedRequestError,
     super.requestLoading,
